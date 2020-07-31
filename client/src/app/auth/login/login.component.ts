@@ -86,7 +86,6 @@ export class LoginComponent implements OnInit {
         this.error = true;
         this.error_Message = response['message'];
         this.spinner.hide();
-        console.log(response);
       } else if (response["responseCode"] == 200) {
         this.error = false;
         var token = response.Token;
@@ -97,13 +96,11 @@ export class LoginComponent implements OnInit {
         localStorage.setItem("email", email);
         this.router.navigate(['home']);
         this.spinner.hide();
-        console.log(response);
       }
     }, (err) => {
       this.error = true;
       this.verifying = false;
       this.spinner.hide();
-      console.log(err);
     })
   }
 }
