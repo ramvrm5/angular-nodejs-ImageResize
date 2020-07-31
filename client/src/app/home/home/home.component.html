@@ -1,0 +1,49 @@
+<nav class="navbar navbar-expand-lg navbar-light bg-light">
+    <a class="navbar-brand">Logged In User
+        <b>{{userName}}</b>
+    </a>
+    <div class="col-xl-9 col-lg-9" style="text-align: right;">
+        <a [routerLink]="" (click)="onlogout()">Logout</a>
+    </div>
+</nav>
+<div class="container-fluid">
+    <div class="row">
+        <div class="col-xl-12 col-lg-12 mt-5">
+            <div *ngIf="error" class="alert alert-danger" role="alert">
+                {{errorInRequest}}
+            </div>
+            <div class="row">
+                <ngx-spinner bdOpacity=0.4 bdColor="rgba(51,51,51,0.42)" size="medium" color="#2457c7" type="ball-spin-fade" [fullScreen]="true">
+                    <p style="color: white"> Loading... </p>
+                </ngx-spinner>
+
+                <div class="col-xl-2 col-lg-2"></div>
+                <div class="col-xl-6 col-lg-6 mr-n0">
+                    <form [formGroup]="credentials" class="form-group">
+                        <input type="text" formControlName="link" [ngClass]="classForValidation('link')" name="link" class="form-control input-amount-enter"
+                            id="link" placeholder="Enter your Image Link">
+                        <div *ngIf="submitted && h.link.errors" class="invalid-feedback">
+                            <div *ngIf="h.link.errors.required">Link is required</div>
+                        </div>
+                        <div *ngIf="submitted && h.link.errors" class="invalid-feedback">
+                            <div *ngIf="h.link.errors.pattern">link shoul be valid (https://upload.wikimedia.org/wikipedia/en/5/5f/TomandJerryTitleCardc.jpg)</div>
+                        </div>
+                        <div *ngIf="submitted && !h.link.errors" class="valid-feedback">
+                            <div>Link is required</div>
+                        </div>
+                    </form>
+                </div>
+                <div class="col-xl-2 col-lg-2 ml-n0">
+                    <button (click)="onSubmit()" class="btn btn-primary">Resize Image</button>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-xl-2 col-lg-2 mx-auto mt-4">
+                    <a target="_blank" href="{{openImage}}">
+                        <img src="{{emptyImage}}" alt="tumbnail" />
+                    </a>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
