@@ -34,6 +34,10 @@ enter similarly in client folder like this cd client
 5.On click on resize thumbnail you can check your original image.                                                                               
 6.on logout you will redirect to login page where you have again login with any email and password if you want to login.                        
                                                                                                                                                 
+---FOR UNIT TEST---                                                                                                                             
+1.you have first run backend service like in server folder npm start                                                                            
+2.in same folder open command prompt and run this command npm test                                                                              
+                                                                                                                                                
 -------Important to Know-----                                                                                                                   
 1.if first time you have logged in and resize any image it will always get you on after every login untill you change it by same                
 resizing process. It always get last resize image.                                                                                              

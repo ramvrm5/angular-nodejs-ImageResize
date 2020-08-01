@@ -18,7 +18,7 @@ app.use(cors());
 //CONNECT WITH MONGOOSE CODE : START
 var url = "mongodb+srv://ramverma:ram123456@traversymedia.77b2f.mongodb.net/image_tumbnail?retryWrites=true&w=majority";
 mongoose.connect(url, { useUnifiedTopology: true , useNewUrlParser: true}).then(result => {
-  console.log('connected To Database...!!!');
+  //console.log('connected To Database...!!!');
 })
 .catch(err => {
 console.log(err);
